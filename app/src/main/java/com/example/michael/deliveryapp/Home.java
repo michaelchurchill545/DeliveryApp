@@ -7,6 +7,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -39,13 +40,14 @@ public class Home extends AppCompatActivity {
         NavigationDrawerFragment fragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.home_fragment_navigation_drawer);
         fragment.setUp(R.id.home_fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mNavItems.add(new NavigationItem("Item 1", R.drawable.example_item));
-        mNavItems.add(new NavigationItem("Item 2", R.drawable.example_item));
+        mNavItems.add(new NavigationItem("Item 1", "test item 1", R.drawable.example_item));
+        mNavItems.add(new NavigationItem("Item 2", "test item 2", R.drawable.example_item));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
-        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(Home.this.getApplicationContext(), mNavItems);
+        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext(), mNavItems);
         mDrawerRecycler.setAdapter(adapter);
+        mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerOpened(View drawerView) {
@@ -90,7 +92,7 @@ public class Home extends AppCompatActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        
+
         return super.onOptionsItemSelected(item);
     }
 }
