@@ -27,7 +27,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_choose_item" />
+    <include layout="@layout/content_choose_item"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp" />
 
 
 </RelativeLayout>
