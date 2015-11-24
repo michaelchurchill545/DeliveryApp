@@ -19,15 +19,15 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+/*
+ * Main activity.
+ */
 public class Home extends AppCompatActivity {
     RecyclerView mDrawerRecycler;
-    RelativeLayout mDrawerPane;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
-
     ArrayList<NavigationItem> mNavItems = new ArrayList<NavigationItem>();
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -35,20 +35,26 @@ public class Home extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
+        // Show Nav Drawer Button
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        // Nav Drawer
         NavigationDrawerFragment fragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.home_fragment_navigation_drawer);
         fragment.setUp(R.id.home_fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mNavItems.add(new NavigationItem("Item 1", "test item 1", R.drawable.example_item));
-        mNavItems.add(new NavigationItem("Item 2", "test item 2", R.drawable.example_item));
+        // Nav Drawer items
+        mNavItems.add(new NavigationItem("Home", "HOME? HOOOOME!", R.drawable.example_item));
+        mNavItems.add(new NavigationItem("Shopping Cart", "View items currently in your shopping cart.", R.drawable.example_item));
+        mNavItems.add(new NavigationItem("Settings", "Edit application settings to your preferences.", R.drawable.example_item));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // Nav Drawer Recycler View
         mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
         DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext(), mNavItems);
         mDrawerRecycler.setAdapter(adapter);
         mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        // Nav Drawer Button
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -61,7 +67,6 @@ public class Home extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -77,7 +82,6 @@ public class Home extends AppCompatActivity {
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

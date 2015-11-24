@@ -7,5 +7,4 @@
     android:background="@color/colorPrimary"
     app:popupTheme="@style/Theme.AppCompat.Light">
 
-
 </android.support.v7.widget.Toolbar>

@@ -2,6 +2,7 @@ package com.example.michael.deliveryapp;
 
 /**
  * Created by Patrick on 11/12/2015.
+ * Class to store properties of items in the navigation drawer's recycler view.
  */
 public class NavigationItem {
     private String mName;
@@ -17,11 +18,9 @@ public class NavigationItem {
     public String getName() {
         return mName;
     }
-
     public String getDescription() {
         return mDescription;
     }
-
     public int getIcon() {
         return mIcon;
     }

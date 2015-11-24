@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by Patrick on 11/12/2015.
+ * Adapter for the navigation drawer's recycler view.
  */
 public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAdapter.NavItemViewHolder> {
     private LayoutInflater inflater;
@@ -24,14 +25,12 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         mNavItems = navItems;
     }
 
-    @Override
     public NavItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.drawer_item, parent, false);
         NavItemViewHolder holder = new NavItemViewHolder(view);
         return holder;
     }
 
-    @Override
     public void onBindViewHolder(NavItemViewHolder holder, int position) {
         TextView title = holder.title;
         TextView description = holder.description;
@@ -42,7 +41,6 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         icon.setImageResource(mNavItems.get(position).getIcon());
     }
 
-    @Override
     public int getItemCount() {
         return mNavItems.size();
     }
