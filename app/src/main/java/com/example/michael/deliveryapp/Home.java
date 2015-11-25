@@ -1,24 +1,23 @@
 package com.example.michael.deliveryapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+/**
+ * Created By Roben
+ */
 public class Home extends AppCompatActivity {
     RecyclerView mDrawerRecycler;
     RelativeLayout mDrawerPane;
@@ -64,16 +63,18 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    //<<<<<<< HEAD
+    // =======
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
     }
 
+    //>>>>>>> origin/master
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
-
         return true;
     }
 
@@ -94,5 +95,16 @@ public class Home extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * method that reacts from when user presses on "Store" button
+     * currently results in printing out "Store List:"
+     */
+    public void storeScreen(View view) {
+
+        Intent intent = new Intent(this, ChooseItem.class);
+        intent.putExtra("bitch", 2);
+        startActivity(intent);
     }
 }

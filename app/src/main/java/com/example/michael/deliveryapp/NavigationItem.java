@@ -1,7 +1,7 @@
 package com.example.michael.deliveryapp;
 
 /**
- * Created by Patrick on 11/12/2015.
+ * Created by Patrick Vu on 11/12/2015.
  */
 public class NavigationItem {
     private String mName;

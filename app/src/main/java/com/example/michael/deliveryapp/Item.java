@@ -1,10 +1,28 @@
 package com.example.michael.deliveryapp;
 
 /**
- * Created by michael on 11/5/2015.
+ * Created by michael on 11/18/2015.
  */
 public class Item {
-    public Item(String name, String description, int price){
+    private String name;
+    private int iconId;
+    private String itemPrice;
 
+    public Item(String name, String description, String price, int iconId) {
+        this.name = name;
+        this.iconId = iconId;
+        itemPrice = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getIconId() {
+        return iconId;
+    }
+
+    public String getItemPrice() {
+        return itemPrice;
     }
 }

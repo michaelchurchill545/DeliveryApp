@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         return mNavItems.size();
     }
 
-    class NavItemViewHolder extends RecyclerView.ViewHolder {
+    class NavItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
         TextView description;
         ImageView icon;
@@ -57,6 +56,11 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
             title = (TextView) navItemView.findViewById(R.id.title);
             description = (TextView) navItemView.findViewById(R.id.description);
             icon = (ImageView) navItemView.findViewById(R.id.icon);
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }
