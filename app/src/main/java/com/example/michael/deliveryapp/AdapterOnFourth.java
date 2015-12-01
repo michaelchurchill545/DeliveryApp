@@ -32,6 +32,7 @@ public class AdapterOnFourth extends ItemAdapter {
             a.add(current);
         }
 
+
         return a;
     }
 }

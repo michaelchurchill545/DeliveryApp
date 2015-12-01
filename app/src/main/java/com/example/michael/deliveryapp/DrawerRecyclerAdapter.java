@@ -79,6 +79,7 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         @Override
         public void onClick(View v) {
             Intent i;
+
             int position = getAdapterPosition();
             switch (position) {
                 case 0:
@@ -97,11 +98,16 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
                     context.startActivity(i);
                     break;
                 case 3:
+                    i = new Intent(context, Register.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
                     break;
                 case 4:
+                    i = new Intent(context, Login.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
                     break;
-                case 5:
-                    break;
+
             }
         }
 

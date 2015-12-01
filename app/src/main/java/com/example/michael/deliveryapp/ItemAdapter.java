@@ -62,6 +62,9 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         return data.size();
     }
 
+    public ItemIterator getIterator() {
+        return new BaseItemIterator();
+    }
     public abstract List<Item> inputData();
     /**
      * Created by michael on 11/9/2015.
@@ -81,6 +84,23 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         @Override
         public void onClick(View v) {
             
+        }
+    }
+
+    class BaseItemIterator implements ItemIterator {
+        int index;
+
+        @Override
+        public boolean hasNext() {
+            return index < data.size();
+        }
+
+        @Override
+        public Item next() {
+            if (this.hasNext()) {
+                return data.get(index++);
+            }
+            return null;
         }
     }
 }

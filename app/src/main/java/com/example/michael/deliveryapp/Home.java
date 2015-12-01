@@ -102,7 +102,7 @@ public class Home extends AppCompatActivity {
     public void storeScreen(View view) {
 
         Intent intent = new Intent(this, ChooseItem.class);
-        intent.putExtra("bitch", 2);
+        intent.putExtra("Test", 2);
         startActivity(intent);
     }
 }
