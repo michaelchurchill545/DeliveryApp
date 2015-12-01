@@ -61,7 +61,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
+        //Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
+        Item cartitem = new Item("Example", "Example", 0, R.drawable.example_item);
         this.addItem(cartitem);
 
         ArrayList<Item> itemstoshow = this.getItems();

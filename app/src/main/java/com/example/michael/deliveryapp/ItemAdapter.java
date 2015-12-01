@@ -83,7 +83,7 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
 
         @Override
         public void onClick(View v) {
-            
+            //ShoppingCartActivity.addItem()
         }
     }
 

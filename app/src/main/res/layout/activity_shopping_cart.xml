@@ -16,7 +16,7 @@
 
         <include layout="@layout/app_bar" />
 
-        <include layout="@layout/cart_row" />
+        <!--<include layout="@layout/cart_row" />-->
         <!--<android.support.v7.widget.Toolbar-->
         <!--android:id="@+id/toolbar"-->
         <!--android:layout_width="match_parent"-->
