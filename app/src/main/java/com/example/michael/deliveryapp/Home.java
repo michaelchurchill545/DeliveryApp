@@ -36,15 +36,13 @@ public class Home extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //create navigation drawer
         NavigationDrawerFragment fragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.home_fragment_navigation_drawer);
         fragment.setUp(R.id.home_fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mNavItems.add(new NavigationItem("Item 1", "test item 1", R.drawable.example_item));
-        mNavItems.add(new NavigationItem("Item 2", "test item 2", R.drawable.example_item));
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
-        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext(), mNavItems);
+        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext());
         mDrawerRecycler.setAdapter(adapter);
         mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

@@ -19,29 +19,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.example.michael.deliveryapp.tabs.SlidingTabLayout;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
 
 public class ChooseItem extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private RecyclerView recyclerView;
-    private ItemAdapter adapter;
-    RecyclerView mDrawerRecycler;
-    RelativeLayout mDrawerPane;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private DrawerLayout mDrawerLayout;
-    private SlidingTabLayout tabs;
-    private ViewPager pager;
-    ArrayList<NavigationItem> mNavItems = new ArrayList<NavigationItem>();
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -52,46 +40,36 @@ public class ChooseItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_item);
-        /*Created By Roben*/
-        recyclerView = (RecyclerView) findViewById(R.id.choose_item_list);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        adapter = new ItemAdapter(getApplicationContext(), getData());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
-        recyclerView.setAdapter(adapter);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter.notifyDataSetChanged();
 
         /*Created By Michael*/
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+
 
         /*Created By Patrick Vu*/
         NavigationDrawerFragment fragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.choose_item_fragment_navigation_drawer);
         fragment.setUp(R.id.choose_item_fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
         /*Created By Michael*/
-        tabs = (SlidingTabLayout) findViewById(R.id.tabs);
-        pager = (ViewPager) findViewById(R.id.pager);
+        SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(new StorePagerAdapter(getSupportFragmentManager()));
         tabs.setViewPager(pager);
 
-        mNavItems.add(new NavigationItem("Choose Store", "Select an item from a store", R.drawable.example_item));
-        mNavItems.add(new NavigationItem("Shopping Cart", "View the items you want to buy", R.drawable.example_item));
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
-        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext(), mNavItems);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        RecyclerView mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
+        DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext());
         mDrawerRecycler.setAdapter(adapter);
         mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+
         /*Created By Michael*/
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu();
@@ -107,21 +85,6 @@ public class ChooseItem extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    /*Created By Michael*/
-    public static List<Item> getData() {
-        List<Item> data = new ArrayList<>();
-        int[] iconId = {R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item};
-        String[] itemNames = {"Fajita", "Cahones", "Burger", "Bald Eagles", "Communism"};
-        String[] itemPrice = {"$10.43", "$1.43", "$10.43", "$10.43", "$666.66"};
-        for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
-            Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
-            System.out.println(itemNames[i] + " added to the list");
-            data.add(current);
-        }
-        return data;
-
     }
 
     /**
@@ -203,6 +166,7 @@ public class ChooseItem extends AppCompatActivity {
         client.disconnect();
     }
 
+
     /*Created By Michael*/
     class StorePagerAdapter extends FragmentPagerAdapter {
         String[] stores;
@@ -219,8 +183,7 @@ public class ChooseItem extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            PagerFragment pagerFragment = PagerFragment.getInstance(position);
-            return pagerFragment;
+            return StoreFragment.getInstance(position);
         }
 
         @Override
@@ -229,18 +192,20 @@ public class ChooseItem extends AppCompatActivity {
         }
     }
 
-    public static class PagerFragment extends Fragment {
+    /*Created By Michael*/
+    public static class StoreFragment extends Fragment {
+        private RecyclerView mRecyclerView;
 
-        private TextView store;
+        private AdapterFactory mAdapterFactory = new AdapterFactory();
 
-        public static PagerFragment getInstance(int position) {
+        public static StoreFragment getInstance(int position) {
             {
-                PagerFragment pagerFragment = new PagerFragment();
+                StoreFragment storeFragment = new StoreFragment();
                 Bundle args = new Bundle();
                 args.putInt("position", position);
-                pagerFragment.setArguments(args);
+                storeFragment.setArguments(args);
 
-                return new PagerFragment();
+                return storeFragment;
             }
 
 
@@ -249,13 +214,30 @@ public class ChooseItem extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            // View layout = inflater.inflate(R.layout.item_recycler_view_row, container, false);
             View layout = inflater.inflate(R.layout.store_fragment, container, false);
             //in slide nerd video it's called R.id.position
-            store = (TextView) layout.findViewById(R.id.position);
+            //store = (TextView) layout.findViewById(R.id.position);
+
             Bundle bundle = getArguments();
-            if (bundle != null) {
-                store.setText("The Store Selected is " + bundle.getInt("position"));
+            int position = bundle.getInt("position");
+
+
+            mRecyclerView = (RecyclerView) layout.findViewById(R.id.recycler_view);
+
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+            try {
+                mRecyclerView.setAdapter(mAdapterFactory.createAdapter(position, getContext()));
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
+
             return layout;
         }
     }

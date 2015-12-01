@@ -13,23 +13,20 @@ import java.util.List;
 /**
  * Created by michael on 11/9/2015.
  */
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
-    private LayoutInflater inflater;
-    List<Item> data;
+public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
+    protected LayoutInflater inflater;
+    private List<Item> data;
 
     /**
      * Created by michael on 11/9/2015.
      */
-    public ItemAdapter(Context context, List<Item> list) {
+    public ItemAdapter(Context context) {
+        super();
         inflater = LayoutInflater.from(context);
-        data = list;
-        setHasStableIds(true);
+        this.data = inputData();
 
     }
 
-    /**
-     * Created by michael on 11/9/2015.
-     */
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.item_recycler_view_row, parent, false);
@@ -37,29 +34,22 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return new ItemViewHolder(view);
     }
 
-    /**
-     * Created by michael on 11/9/2015.
-     */
-    @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
 
         Item item = data.get(position);
 
         holder.title.setText(item.getName());
-        System.out.println(item.getName() + " was bound");
-        holder.price.setText(item.getItemPrice());
-        System.out.println(item.getItemPrice() + " was bound");
+        holder.price.setText("$" + String.valueOf(item.getItemPrice()));
         holder.icon.setImageResource(item.getIconId());
-        System.out.println(item.getIconId() + " was bound");
     }
 
+    @Override
     public int getItemCount() {
-        System.out.println("Item count:" + data.size());
 
         return data.size();
-
     }
 
+    public abstract List<Item> inputData();
     /**
      * Created by michael on 11/9/2015.
      */

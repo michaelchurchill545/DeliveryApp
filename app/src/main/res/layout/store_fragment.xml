@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textColor="#000000"
-    android:textSize="20sp"
-    android:id="@+id/position"
-    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ChooseItem">
 
-    android:text="This is a store">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</TextView>
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

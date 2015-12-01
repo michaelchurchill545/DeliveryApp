@@ -6,23 +6,30 @@ package com.example.michael.deliveryapp;
 public class Item {
     private String name;
     private int iconId;
-    private String itemPrice;
+    private double itemPrice;
+    private String description;
 
-    public Item(String name, String description, String price, int iconId) {
+    public Item(String name, String description, double price, int iconId) {
         this.name = name;
         this.iconId = iconId;
         itemPrice = price;
+        this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
     public String getName() {
         return name;
     }
-
     public int getIconId() {
         return iconId;
     }
 
-    public String getItemPrice() {
+    public double getItemPrice() {
         return itemPrice;
     }
 }
+
+
+
