@@ -25,11 +25,7 @@ public class Item {
     public int getIconId() {
         return iconId;
     }
-
     public double getItemPrice() {
         return itemPrice;
     }
 }
-
-
-

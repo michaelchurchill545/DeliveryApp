@@ -8,6 +8,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        <!-- Splash screen -->
+        <activity
+            android:name="com.example.michael.deliveryapp.SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.michael.deliveryapp.Home"
+            android:label="@string/app_name">
+        </activity>
         <activity
             android:name=".ChooseItem"
             android:label="@string/title_activity_choose_item"
@@ -16,7 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Home" />
         </activity>
-
+        <activity
+            android:name=".SelectedItemViewer"
+            android:label="Selected Item Viewer"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseItem" />
+        </activity>
         <!-- <activity -->
         <!-- android:name=".TesticlesActivity" -->
         <!-- android:label="@string/title_activity_testicles" -->
@@ -27,16 +50,16 @@
         <!-- android:label="@string/title_activity_choose_store" -->
         <!-- android:theme="@style/AppTheme" > -->
         <!-- </activity> -->
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!--<activity-->
+            <!--android:name=".Home"-->
+            <!--android:label="@string/title_activity_home"-->
+            <!--android:theme="@style/AppTheme" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

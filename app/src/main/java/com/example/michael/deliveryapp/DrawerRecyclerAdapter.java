@@ -22,18 +22,33 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
     protected Context context;
     private List<NavigationItem> mNavItems = Collections.EMPTY_LIST;
 
+    /**
+     * Constructor for DrawerRecyclerAdapter
+     * @param context global information from the application
+     */
     public DrawerRecyclerAdapter(Context context) {
         inflater = LayoutInflater.from(context);
         mNavItems = inputData();
         this.context = context;
     }
 
+    /**
+     * Creates and initializes a view to represent items of the given type
+     * @param parent the view group that the view will be added to
+     * @param viewType the view type of the created view
+     * @return the view holder for the nav item created from the given parameters
+     */
     public NavItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.drawer_item, parent, false);
         NavItemViewHolder holder = new NavItemViewHolder(view);
         return holder;
     }
 
+    /**
+     * Updates the view holder's contents with the item at the given position.
+     * @param holder the view holder to update
+     * @param position the index to update
+     */
     public void onBindViewHolder(NavItemViewHolder holder, int position) {
         TextView title = holder.title;
         TextView description = holder.description;
@@ -44,11 +59,18 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         icon.setImageResource(mNavItems.get(position).getIcon());
     }
 
+    /**
+     * Returns the number of nav items in the array
+     * @return the number of nav items in the array
+     */
     public int getItemCount() {
         return mNavItems.size();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public ArrayList<NavigationItem> inputData() {
         ArrayList<NavigationItem> a = new ArrayList<>();
 
@@ -61,11 +83,18 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         return a;
     }
 
+    /**
+     * View holder for navigation items.
+     */
     class NavItemViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener {
         TextView title;
         TextView description;
         ImageView icon;
 
+        /**
+         * Constructor for NavItemViewHolder
+         * @param navItemView the view to create a view holder for
+         */
         public NavItemViewHolder(View navItemView) {
             super(navItemView);
             navItemView.setOnClickListener(this);
