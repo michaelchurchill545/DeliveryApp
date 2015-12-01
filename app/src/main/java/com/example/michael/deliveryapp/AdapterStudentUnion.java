@@ -25,9 +25,9 @@ public class AdapterStudentUnion extends ItemAdapter {
     @Override
     public List<Item> inputData() {
         ArrayList<Item> a = new ArrayList<>();
-        int[] iconId = {R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item};
+        int[] iconId = { R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza};
         String[] itemNames = {"TacoBell Quesorito", "Brick's Vegan Pizza", "Apples 'n Greens", "Waffle Thing", "Orange Chicken Bowl",};
-        double[] itemPrice = {4.99, 6.50, 5.10, 11.23, 5.16,};
+        double[] itemPrice = {4.99, 6.53, 5.11, 11.23, 5.16,};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
             System.out.println(itemNames[i] + " added to the list");

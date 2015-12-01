@@ -13,7 +13,7 @@
     <string name="title_activity_choose_item">Choose Item</string>
     <string name="item_name_coffee">Zebra Mocha</string>
     <string name="title_activity_home">Home</string>
-
+    <string name="title_activity_shopping_cart">Shopping Cart</string>
 <!-- Nav Drawer -->
     <string name="hello_blank_fragment">Nav Drawer stuff</string>
     <string name="drawer_open">Open</string>

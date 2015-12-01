@@ -66,7 +66,7 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
     /**
      * Created by michael on 11/9/2015.
      */
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
         TextView price;
         ImageView icon;
@@ -76,6 +76,11 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
             title = (TextView) itemView.findViewById(R.id.item_name);
             icon = (ImageView) itemView.findViewById(R.id.item_icon);
             price = (TextView) itemView.findViewById(R.id.item_price);
+        }
+
+        @Override
+        public void onClick(View v) {
+            
         }
     }
 }

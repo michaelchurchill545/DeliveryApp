@@ -23,8 +23,8 @@ public class AdapterVillageMarket extends ItemAdapter {
     @Override
     public List<Item> inputData() {
         List<Item> a = new ArrayList<>();
-        int[] iconId = {R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item};
-        String[] itemNames = {"Pizzooki", "VillageMarketItem", "VillageMarketItem", "VillageMarketItem", "VillageMarketItem"};
+        int[] iconId = {R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza};
+        String[] itemNames = {"Pizzooki", "Cheese Pizzooki", "Pizza Cookie", "Cookie Pizza", "How is this food"};
         double[] itemPrice = {10.43, 10.43, 10.43, 10.43, 10.43,};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);

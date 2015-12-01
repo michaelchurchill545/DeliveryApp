@@ -92,6 +92,9 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
                     context.startActivity(i);
                     break;
                 case 2:
+                    i = new Intent(context, ShoppingCartActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
                     break;
                 case 3:
                     break;
