@@ -60,8 +60,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-        Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
+        Item cartitem = new Item("foo", "foo", 0, R.drawable.example_item);
+        // Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
         this.addItem(cartitem);
         ListView cartView = (ListView) findViewById(R.id.cart_list);
         cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));

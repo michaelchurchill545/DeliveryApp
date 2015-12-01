@@ -62,5 +62,9 @@ public class ShoppingCartAdapter extends BaseAdapter {
         TextView itemname;
         TextView description;
         TextView price;
+
+        public ViewHolder() {
+
+        }
     }
 }
