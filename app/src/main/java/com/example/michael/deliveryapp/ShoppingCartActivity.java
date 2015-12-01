@@ -66,7 +66,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         ListView cartView = (ListView) findViewById(R.id.cart_list);
         cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));
         Button paybutton = (Button) findViewById(R.id.pay_now);
-        paybutton.setText("Subtotal" + this.getSubtotal());
+        String subTot = "Subtotal: " + getSubtotal();
+        paybutton.setText(subTot);
     }
 
     //<<<<<<< HEAD
@@ -112,12 +113,15 @@ public class ShoppingCartActivity extends AppCompatActivity {
         cartItems.remove(item);
     }
 
-    public double getSubtotal() {
+    public String getSubtotal() {
         double subtotal = 0;
+        if (cartItems != null) {
         for (Item ca : cartItems) {
             subtotal += ca.getItemPrice();
         }
-        return subtotal;
+        }
+
+        return "$" + subtotal;
     }
 
 
