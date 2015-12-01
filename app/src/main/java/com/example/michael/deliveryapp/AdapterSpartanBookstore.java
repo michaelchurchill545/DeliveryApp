@@ -24,7 +24,7 @@ public class AdapterSpartanBookstore extends ItemAdapter {
 
         int[] iconId = {R.drawable.ic_action_mustache, R.drawable.ic_action_mustache, R.drawable.ic_action_tshirt, R.drawable.ic_action_tshirt, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza};
         String[] itemNames = {"Apple Earbuds", "Pencils (Box of 2)", "Spartan Hoodie(Grey)", "Black Spartan Shirt", "5 Gum: Spear Mint", "Gatorade"};
-        double[] itemPrice = {59.99, 29.00, 16.43, 15.40, 2.43, 1.99};
+        double[] itemPrice = {59.99, 29.99, 16.43, 15.49, 2.43, 1.99};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
             System.out.println(itemNames[i] + " added to the list"); //debugger check

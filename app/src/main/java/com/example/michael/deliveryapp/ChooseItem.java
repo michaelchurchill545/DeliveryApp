@@ -64,6 +64,7 @@ public class ChooseItem extends AppCompatActivity {
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         RecyclerView mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
         DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext());
+
         mDrawerRecycler.setAdapter(adapter);
         mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -211,23 +212,29 @@ public class ChooseItem extends AppCompatActivity {
 
         }
 
+        /**
+         * Every time a new store tab is clicked or swiped, this method creates
+         * a fragment and instantiates a recycler view of items inside of it.
+         * An adapter with items unique to the specific store tab swiped to
+         * is set to the Recycler View
+         *
+         * @param inflater           A view that gets the XML layout with the correct specifications to show
+         *                           a recycler view that contains the elements of the store selected. The selected store
+         * @param container          A View Group (which is a view that contains views inside of it
+         *                           called "children") whose children are the rows of a recycler view.
+         * @param savedInstanceState he saved data that the system uses to restore the previous
+         *                           state is called the "instance state" and is a collection of key-value pairs stored
+         *                           in a Bundle object.
+         * @return A layout formatted as a Recycler View.
+         */
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-            // View layout = inflater.inflate(R.layout.item_recycler_view_row, container, false);
             View layout = inflater.inflate(R.layout.store_fragment, container, false);
-            //in slide nerd video it's called R.id.position
-            //store = (TextView) layout.findViewById(R.id.position);
-
             Bundle bundle = getArguments();
             int position = bundle.getInt("position");
-
-
             mRecyclerView = (RecyclerView) layout.findViewById(R.id.recycler_view);
-
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-
             try {
                 mRecyclerView.setAdapter(mAdapterFactory.createAdapter(position, getContext()));
             } catch (NoSuchMethodException e) {
@@ -237,7 +244,6 @@ public class ChooseItem extends AppCompatActivity {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-
             return layout;
         }
     }

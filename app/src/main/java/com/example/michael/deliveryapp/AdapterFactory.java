@@ -22,12 +22,15 @@ public class AdapterFactory {
      * 2)Gets a string with a given createAdapter method name and passes it a Context Parameter
      * 3)Calls the method in this ItemAdapterClass with the given Context
      *
-     * @param position the index in the String array
-     * @param context
+     * @param position the index in the String array of method names
+     * @param context global information about the application.
      * @return an instantiated adapter of the given type
-     * @throws NoSuchMethodException
+     * @throws NoSuchMethodException if an adapter wants to be created but there is no
+     * supporting method for it's creation
      * @throws InvocationTargetException
-     * @throws IllegalAccessException
+     * @throws IllegalAccessException when the application tries to reflectively create
+     * an instance but the currently executing method does not have access to the definition
+     * of the specified method
      */
     public ItemAdapter createAdapter(int position, Context context)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {

@@ -34,6 +34,19 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         return new ItemViewHolder(view);
     }
 
+    /**
+     * This method merges the information (In this case the Item's name, price, and icon ID) passed
+     * in from a given item with the specifications given from the ItemViewHolder's XML code so that
+     * it can fit the format of a recycler view's layout.
+     * <p/>
+     * For example, The holder's Icon (Placed on the left of the recycler view row) will have it's
+     * initialized icon (an android launcher icon) replaced with some item icon like a pizza to
+     * represent food or a mustache to represent an item accessory.
+     *
+     * @param holder   The ItemViewHolder, which retrieves the XML layouts of TextViews or ImageViews
+     *                 when constructed.
+     * @param position The index of an Item inside of a subclass's list of items
+     */
     public void onBindViewHolder(ItemViewHolder holder, int position) {
 
         Item item = data.get(position);
