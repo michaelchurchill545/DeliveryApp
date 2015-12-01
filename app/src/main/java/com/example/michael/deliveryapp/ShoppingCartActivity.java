@@ -60,11 +60,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        Item cartitem = new Item("foo", "foo", 0, R.drawable.example_item);
-        // Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
+
+        Item cartitem = (Item) getIntent().getSerializableExtra("cartitem");
         this.addItem(cartitem);
+
+        ArrayList<Item> itemstoshow = this.getItems();
         ListView cartView = (ListView) findViewById(R.id.cart_list);
-        cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));
+        cartView.setAdapter(new ShoppingCartAdapter(this, itemstoshow));
         Button paybutton = (Button) findViewById(R.id.pay_now);
         String subTot = "Subtotal: " + getSubtotal();
         paybutton.setText(subTot);
@@ -116,12 +118,29 @@ public class ShoppingCartActivity extends AppCompatActivity {
     public String getSubtotal() {
         double subtotal = 0;
         if (cartItems != null) {
-        for (Item ca : cartItems) {
-            subtotal += ca.getItemPrice();
-        }
+            for (Item ca : cartItems) {
+                subtotal += ca.getItemPrice();
+            }
         }
 
         return "$" + subtotal;
+    }
+
+    public ArrayList<Item> getItems() {
+        ArrayList<Item> cartitems = new ArrayList<>();
+        double pizzaprice = 2.50;
+        double iconid = 3.33;
+        Item pizza = new Item("Pizza", "Cheesy cheesy cheesy", pizzaprice, (int) iconid);
+        Item hamburger = new Item("Hamburger", "Life between two buns", pizzaprice, (int) iconid);
+        Item salad = new Item("Salad", "Healthy Greens", pizzaprice, (int) iconid);
+        Item donut = new Item("Donut", "Best Way to Start Your Breakfast", pizzaprice, (int) iconid);
+        Item drink = new Item("Drink", "Something to wash down the greatness", pizzaprice, (int) iconid);
+        cartitems.add(pizza);
+        cartitems.add(hamburger);
+        cartitems.add(salad);
+        cartitems.add(donut);
+        cartitems.add(drink);
+        return cartitems;
     }
 
 
