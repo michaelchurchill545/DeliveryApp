@@ -69,9 +69,11 @@
         android:layout_marginLeft="52dp" />
 
     <Button
+        android:id="@+id/add_to_cart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add to Cart"
+        android:onClick="shopping_cart"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="64dp" />

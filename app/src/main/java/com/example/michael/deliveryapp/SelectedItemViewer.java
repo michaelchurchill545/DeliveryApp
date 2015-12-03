@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.Serializable;
-
 /**
  * Created By not-Roben
  */
@@ -38,7 +36,8 @@ public class SelectedItemViewer extends AppCompatActivity {
         title.setText(item.getName());
         price.setText(textValuePrice);
         icon.setImageResource(item.getIconId());
-        
+
+
 
           /*Created By Michael*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
@@ -82,9 +81,11 @@ public class SelectedItemViewer extends AppCompatActivity {
      * Reacts when user presses "Add to Cart" button
      * Passes item to Shopping Cart activity
      */
-    public void addToCart(View view) {
+
+    public void shopping_cart(View view) {
+
         Intent intent = new Intent(this, ShoppingCartActivity.class);
-        intent.putExtra("cartitem", (Serializable) item);
+        intent.putExtra("shopping_cart", item);
         startActivity(intent);
     }
 }
