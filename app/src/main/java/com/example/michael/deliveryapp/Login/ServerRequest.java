@@ -1,7 +1,7 @@
 /**
  * Created by Patrick Balingit on 11/21/2015.
  */
-package com.example.michael.deliveryapp;
+package com.example.michael.deliveryapp.Login;
 
 
 import android.app.ProgressDialog;

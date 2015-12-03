@@ -32,5 +32,6 @@
         android:layout_alignParentRight="true"
         android:textColor="#343434"
         android:textSize="12sp"
+        android:paddingRight="32dp"
         android:text="3.19" />
 </RelativeLayout>

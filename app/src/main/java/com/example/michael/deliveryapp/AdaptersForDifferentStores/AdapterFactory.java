@@ -1,6 +1,8 @@
-package com.example.michael.deliveryapp;
+package com.example.michael.deliveryapp.AdaptersForDifferentStores;
 
 import android.content.Context;
+
+import com.example.michael.deliveryapp.ItemAdapter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

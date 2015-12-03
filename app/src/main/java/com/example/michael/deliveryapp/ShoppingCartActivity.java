@@ -124,7 +124,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         }
 
-        return "$" + subtotal;
+        return "$" + String.valueOf(String.format("%.2f", subtotal));
     }
 
     public ArrayList<Item> getItems() {

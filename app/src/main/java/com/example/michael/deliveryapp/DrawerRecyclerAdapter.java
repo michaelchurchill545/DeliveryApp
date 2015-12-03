@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.michael.deliveryapp.Login.Login;
+import com.example.michael.deliveryapp.Login.Register;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

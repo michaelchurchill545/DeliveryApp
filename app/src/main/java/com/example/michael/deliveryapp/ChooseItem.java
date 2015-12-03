@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.michael.deliveryapp.AdaptersForDifferentStores.AdapterFactory;
 import com.example.michael.deliveryapp.tabs.SlidingTabLayout;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;

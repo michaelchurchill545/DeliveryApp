@@ -1,7 +1,7 @@
 /**
  * Created by Patrick Balingit on 11/21/2015.
  */
-package com.example.michael.deliveryapp;
+package com.example.michael.deliveryapp.Login;
 
 
 import android.app.AlertDialog;
@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.michael.deliveryapp.Home;
+import com.example.michael.deliveryapp.R;
 
 
 public class Login extends AppCompatActivity implements View.OnClickListener {

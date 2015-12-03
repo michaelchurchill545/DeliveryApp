@@ -1,6 +1,10 @@
-package com.example.michael.deliveryapp;
+package com.example.michael.deliveryapp.AdaptersForDifferentStores;
 
 import android.content.Context;
+
+import com.example.michael.deliveryapp.Item;
+import com.example.michael.deliveryapp.ItemAdapter;
+import com.example.michael.deliveryapp.R;
 
 import java.util.ArrayList;
 import java.util.List;

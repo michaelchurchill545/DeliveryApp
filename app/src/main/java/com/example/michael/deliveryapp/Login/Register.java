@@ -1,7 +1,7 @@
 /**
  * Created by Patrick Balingit on 11/21/2015.
  */
-package com.example.michael.deliveryapp;
+package com.example.michael.deliveryapp.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.michael.deliveryapp.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
