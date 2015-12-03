@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DeliveryApp</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_testicles">TesticlesActivity</string>
+    <string name="title_activity_selected_item_viewer">Item</string>
 
     <string-array name="stores">
         <item>Village Market</item>
