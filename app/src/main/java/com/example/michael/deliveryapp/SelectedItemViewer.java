@@ -21,7 +21,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
  * Created By not-Roben
  */
 public class SelectedItemViewer extends AppCompatActivity {
-    Item item = new Item("test", "description", 20.00, R.drawable.ic_action_mustache);
+    Item item = new Item("test", "some description", 20.00, R.drawable.ic_action_mustache);
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -45,10 +45,12 @@ public class SelectedItemViewer extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.item_name);
         TextView price = (TextView) findViewById(R.id.item_price);
         ImageView icon = (ImageView) findViewById(R.id.item_icon);
+        // TextView description = (TextView)findViewById(R.id.description);
         String textValuePrice = "$" + String.format("%.2f", item.getItemPrice());
         title.setText(item.getName());
         price.setText(textValuePrice);
         icon.setImageResource(item.getIconId());
+        // description.setText(item.getDescription());
 
 
 

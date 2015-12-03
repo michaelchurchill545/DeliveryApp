@@ -13,13 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
  * Created by Roben on 11/30/2015.
  */
-public class ShoppingCartActivity extends AppCompatActivity {
+public class ShoppingCartActivity extends AppCompatActivity implements View.OnClickListener {
     private ActionBarDrawerToggle mDrawerToggle;
     private ArrayList<Item> cartItems = new ArrayList<>();
 
@@ -82,6 +83,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         Button paybutton = (Button) findViewById(R.id.pay_now);
         String subTot = "" + this.getSubtotal();
         paybutton.setText(subTot);
+        paybutton.setOnClickListener(this);
     }
 
     //<<<<<<< HEAD
@@ -139,4 +141,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getApplicationContext(), "Order Sent!",
+                Toast.LENGTH_LONG).show();
+    }
 }

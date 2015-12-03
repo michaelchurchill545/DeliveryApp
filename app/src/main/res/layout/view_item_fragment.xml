@@ -64,7 +64,7 @@
         android:id="@+id/item_description"
         android:textSize="18dp"
         android:textColor="#000000"
-        android:text="This is the most glorious pizza you'll ever read a description of. Forfeit your life now! Muahaha!"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at dignissim lectus. In fringilla vel erat quis eleifend. Nulla et risus urna."
         android:layout_marginTop="158dp"
         android:layout_marginLeft="52dp" />
 

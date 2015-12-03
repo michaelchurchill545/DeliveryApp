@@ -58,7 +58,7 @@ public class Home extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     //<<<<<<< HEAD
