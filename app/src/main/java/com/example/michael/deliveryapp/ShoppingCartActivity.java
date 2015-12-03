@@ -62,6 +62,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        /*
         if (savedInstanceState == null || !savedInstanceState.containsKey("itemlist")) {
             Intent getIntent = getIntent();
             if (getIntent.getExtras() != null) {
@@ -75,6 +76,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 Item additem = (Item) getIntent().getParcelableExtra("cartitem");
                 cartItems.add(additem);
             }
+        }
+        */
+
+        Intent getIntent = getIntent();
+        if (getIntent.getExtras() != null) {
+            Item additem = (Item) getIntent().getParcelableExtra("cartitem");
+            cartItems.add(additem);
         }
         ListView cartView = (ListView) findViewById(R.id.cart_list);
         cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));
@@ -92,7 +100,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
 
     protected void onSaveInstanceState(Bundle outState) {
-
 
         outState.putParcelableArrayList("itemlist", cartItems);
         super.onSaveInstanceState(outState);
@@ -137,5 +144,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
         return "Pay Now: $" + String.valueOf(String.format("%.2f", subtotal));
     }
+
 
 }
