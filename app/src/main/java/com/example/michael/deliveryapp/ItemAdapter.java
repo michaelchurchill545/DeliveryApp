@@ -58,7 +58,8 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
 
         Item anItem = data.get(position);
         holder.title.setText(anItem.getName());
-        holder.price.setText("$" + String.valueOf(String.format("%.2f", anItem.getItemPrice())));
+        String a = "$" + String.valueOf(String.format("%.2f", anItem.getItemPrice()));
+        holder.price.setText(a);
         holder.icon.setImageResource(anItem.getIconId());
     }
 
