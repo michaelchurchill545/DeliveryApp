@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name=".SelectedItemViewer"
-            android:label="@string/title_activity_home"
+            android:label="@string/title_activity_selected_item_viewer"
             android:theme="@style/AppTheme">
 
         </activity>
