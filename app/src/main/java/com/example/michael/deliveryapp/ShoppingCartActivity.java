@@ -61,15 +61,25 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        Intent getIntent = getIntent();
-        if (getIntent.getExtras() != null) {
-            Item additem = (Item) getIntent().getSerializableExtra("cartitem");
-            cartItems.add(additem);
+
+        if (savedInstanceState == null || !savedInstanceState.containsKey("itemlist")) {
+            Intent getIntent = getIntent();
+            if (getIntent.getExtras() != null) {
+                Item additem = (Item) getIntent().getParcelableExtra("cartitem");
+                cartItems.add(additem);
+            }
+        } else {
+            cartItems = savedInstanceState.getParcelableArrayList("itemlist");
+            Intent getIntent = getIntent();
+            if (getIntent.getExtras() != null) {
+                Item additem = (Item) getIntent().getParcelableExtra("cartitem");
+                cartItems.add(additem);
+            }
         }
         ListView cartView = (ListView) findViewById(R.id.cart_list);
         cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));
         Button paybutton = (Button) findViewById(R.id.pay_now);
-        String subTot = "Subtotal: " + getSubtotal();
+        String subTot = "Subtotal: " + this.getSubtotal();
         paybutton.setText(subTot);
     }
 
@@ -80,6 +90,15 @@ public class ShoppingCartActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
     }
 
+
+    protected void onSaveInstanceState(Bundle outState) {
+
+
+        outState.putParcelableArrayList("itemlist", cartItems);
+        super.onSaveInstanceState(outState);
+    }
+
+
     //>>>>>>> origin/master
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,6 +106,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -109,19 +129,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
     public String getSubtotal() {
         double subtotal = 0;
-        if (cartItems.size() < 0) {
-            for (Item ca : cartItems) {
-                subtotal += ca.getItemPrice();
+        if (cartItems.size() > 0) {
+            for (int i = 0; i < cartItems.size(); i++) {
+                subtotal += cartItems.get(i).getItemPrice();
             }
         }
 
-        return "$" + String.valueOf(String.format("%.2f", subtotal));
+        return "Pay Now: $" + String.valueOf(String.format("%.2f", subtotal));
     }
-
-    public ArrayList<Item> getItems() {
-
-        return cartItems;
-    }
-
 
 }

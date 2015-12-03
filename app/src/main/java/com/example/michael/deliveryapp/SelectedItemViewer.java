@@ -85,7 +85,7 @@ public class SelectedItemViewer extends AppCompatActivity {
     public void shopping_cart(View view) {
 
         Intent intent = new Intent(this, ShoppingCartActivity.class);
-        intent.putExtra("shopping_cart", item);
+        intent.putExtra("cartitem", item);
         startActivity(intent);
     }
 }

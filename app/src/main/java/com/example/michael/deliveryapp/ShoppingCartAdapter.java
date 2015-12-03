@@ -55,6 +55,7 @@ public class ShoppingCartAdapter extends BaseAdapter {
         holder.description.setText(cartItems.get(position).getDescription());
         String pricestring = "$" + String.format("%.2f", cartItems.get(position).getItemPrice());
         holder.price.setText(pricestring);
+
         return convertView;
     }
 
