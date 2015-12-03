@@ -39,7 +39,7 @@ public class SelectedItemViewer extends AppCompatActivity {
         setContentView(R.layout.view_item_fragment);
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
-            item = (Item) getIntent().getSerializableExtra("selected_item");
+            item = (Item) getIntent().getParcelableExtra("selected_item");
 
         }
         TextView title = (TextView) findViewById(R.id.item_name);

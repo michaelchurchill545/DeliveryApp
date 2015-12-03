@@ -62,7 +62,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        /*
+
         if (savedInstanceState == null || !savedInstanceState.containsKey("itemlist")) {
             Intent getIntent = getIntent();
             if (getIntent.getExtras() != null) {
@@ -77,17 +77,10 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 cartItems.add(additem);
             }
         }
-        */
-
-        Intent getIntent = getIntent();
-        if (getIntent.getExtras() != null) {
-            Item additem = (Item) getIntent().getParcelableExtra("cartitem");
-            cartItems.add(additem);
-        }
         ListView cartView = (ListView) findViewById(R.id.cart_list);
         cartView.setAdapter(new ShoppingCartAdapter(this, cartItems));
         Button paybutton = (Button) findViewById(R.id.pay_now);
-        String subTot = "Subtotal: " + this.getSubtotal();
+        String subTot = "" + this.getSubtotal();
         paybutton.setText(subTot);
     }
 
