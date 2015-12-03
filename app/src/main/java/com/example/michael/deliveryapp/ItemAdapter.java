@@ -19,6 +19,8 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
     private List<Item> data;
     private Context context;
     private Item item;
+    private boolean itemHasBeenSelected = false;
+    private int position;
 
     /**
      * Created by michael on 11/9/2015.
@@ -52,13 +54,18 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
      * @param position The index of an Item inside of a subclass's list of items
      */
     public void onBindViewHolder(ItemViewHolder holder, int position) {
+        setPosition(position);
 
-        Item item = data.get(position);
-
-        holder.title.setText(item.getName());
-        holder.price.setText("$" + String.valueOf(String.format("%.2f", item.getItemPrice())));
-        holder.icon.setImageResource(item.getIconId());
+        Item anItem = data.get(position);
+        holder.title.setText(anItem.getName());
+        holder.price.setText("$" + String.valueOf(String.format("%.2f", anItem.getItemPrice())));
+        holder.icon.setImageResource(anItem.getIconId());
     }
+
+    public void setPosition(int num) {
+        position = num;
+    }
+
 
     @Override
     public int getItemCount() {
@@ -89,8 +96,17 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
 
         public void onClick(View v) {
             Intent i;
-            SelectedItemViewer selectedItemViewer = new SelectedItemViewer(item);
+
+
+            //gets the item selected
+            item = data.get(getPosition());
+
+
+            //targets the next activity to go to
             i = new Intent(context, SelectedItemViewer.class);
+            //sends the given item
+            i.putExtra("selected_item", item);
+            //goes to the next activity
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
         }
