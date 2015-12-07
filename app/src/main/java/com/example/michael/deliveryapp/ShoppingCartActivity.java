@@ -143,7 +143,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getApplicationContext(), "Order Sent!",
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Order Sent!",
+                //Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this, PaymentPayPal.class));
     }
 }
