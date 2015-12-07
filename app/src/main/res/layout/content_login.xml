@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created by Patrick Balingit -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -63,6 +64,15 @@
         android:text="REGISTER HERE"
         android:layout_width="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome to Lazi"
+        android:id="@+id/textView"
+        android:layout_below="@+id/login"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

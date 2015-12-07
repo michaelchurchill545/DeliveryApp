@@ -29,9 +29,9 @@ public class AdapterJustBelow extends ItemAdapter {
     @Override
     public List<Item> inputData() {
         List<Item> a = new ArrayList<>();
-        int[] iconId = {R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item};
-        String[] itemNames = {"JustBelowItem", "JustBelowItem", "JustBelowItem", "JustBelowItem", "JustBelowItem"};
-        double[] itemPrice = {10.43, 10.43, 10.43, 10.43, 10.43,};
+        int[] iconId = {R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza, R.drawable.ic_local_pizza};
+        String[] itemNames = {"Veggie Sandwich", "BBQ Chicken Sandwich", "Deli Pastrami Sandwich", "Aioli Amore Sandwich", "Garden Turkey Sandwich"};
+        double[] itemPrice = {4.45, 7.05, 7.05, 6.50, 4.30,};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
             System.out.println(itemNames[i] + " added to the list"); //Debug check

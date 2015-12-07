@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Patrick on 11/21/2015.
+ * Created by Patrick Balingit on 11/21/2015.
  */
 public class ServerRequest {
 
