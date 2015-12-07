@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:id="@+id/item_recycler_view"
+    android:background="@drawable/custom_bg"
+    android:clickable="true">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/item_icon"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/example_item">
+
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/item_name"
+        android:textSize="16sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:textColor="#000000"
+        android:text="Example Item Name" />
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:layout_gravity="center_vertical"
+        android:textAlignment="gravity"
+        android:id="@+id/item_price"
+        android:paddingEnd="32dp"
+        android:paddingRight="32dp"
+        android:text="$1.89" />
+
+</LinearLayout>

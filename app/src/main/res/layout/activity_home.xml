@@ -9,8 +9,42 @@
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/lazilogo"
+        android:gravity="bottom">
+
+
+        <!--
+        Center the Button under the logo.
+        Color the button in correlation with the color scheme.
+        -->
+        <Button
+            android:text="Choose Store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="storeScreen"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_alignTop="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <!--
+        Center the Button under the logo.
+        Color the button in correlation with the color scheme.
+        -->
+        <Button
+            android:text="Past Orders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="119dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
         <include layout="@layout/app_bar"/>
 
         <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
@@ -25,8 +59,7 @@
         <include layout="@layout/content_home" />
 
 
-
-</RelativeLayout>
+    </RelativeLayout>
     <fragment
         android:id="@+id/home_fragment_navigation_drawer"
         android:layout_width="@dimen/nav_bar_width"
@@ -34,6 +67,6 @@
         android:layout_gravity="start"
         app:layout="@layout/fragment_navigation_drawer"
         android:name="com.example.michael.deliveryapp.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" />
+        tools:layout="@layout/fragment_navigation_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

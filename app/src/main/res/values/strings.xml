@@ -1,20 +1,33 @@
 <resources>
     <string name="app_name">DeliveryApp</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_testicles">TesticlesActivity</string>
+    <string name="title_activity_selected_item_viewer">Item</string>
 
-    <string name="title_activity_choose_store">Choose Store</string>
-    <string name="store_name_village_market">Village Market</string>
-    <string name="store_name_on_fourth">Village Market</string>
-    <string name="store_name_just_below">Village Market</string>
-    <string name="store_name_spartan_bookstore">Spartan Bookstore</string>
-
+    <string-array name="stores">
+        <item>Village Market</item>
+        <item>Spartan Bookstore</item>
+        <item>On Fourth</item>
+        <item>Just Below</item>
+        <item>Student Union</item>
+    </string-array>
     <string name="title_activity_choose_item">Choose Item</string>
     <string name="item_name_coffee">Zebra Mocha</string>
     <string name="title_activity_home">Home</string>
-
+    <string name="title_activity_shopping_cart">Shopping Cart</string>
 <!-- Nav Drawer -->
     <string name="hello_blank_fragment">Nav Drawer stuff</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+
+    <string-array name="housing_array">
+        <item>CVA</item>
+        <item>CVB</item>
+        <item>CVC</item>
+    </string-array>
+    <string-array name="school_array">
+        <item>SJSU</item>
+
+    </string-array>
+
+
 </resources>
