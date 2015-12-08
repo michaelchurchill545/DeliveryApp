@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.michael.deliveryapp.Item;
 import com.example.michael.deliveryapp.ItemAdapter;
+import com.example.michael.deliveryapp.Iterator;
 import com.example.michael.deliveryapp.R;
 
 import java.util.ArrayList;
@@ -31,9 +32,20 @@ public class AdapterSpartanBookstore extends ItemAdapter {
         double[] itemPrice = {59.99, 29.99, 16.43, 15.49, 2.43, 1.99};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
-            System.out.println(itemNames[i] + " added to the list"); //debugger check
+
             a.add(current);
         }
+
+
+        //use iterator to travverse list
+        ItemList itemList = new ItemList(a);
+        Iterator itemIterator = itemList.createIterator();
+        while (itemIterator.hasNext()) {
+            //verifies that the item was added to the list
+            Item i = itemIterator.next();
+            System.out.println(i.getName() + " added to the list");
+    }
+
         return a;
     }
 }

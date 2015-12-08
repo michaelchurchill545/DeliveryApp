@@ -17,7 +17,7 @@ package com.example.michael.deliveryapp;
  * list iterator
  * Created by michael on 12/1/2015.
  */
-public interface ItemIterator {
+public interface Iterator {
     boolean hasNext();
 
     Item next();

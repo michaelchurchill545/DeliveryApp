@@ -72,10 +72,6 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         return data.size();
     }
 
-    public ItemIterator getIterator() {
-        return new BaseItemIterator();
-    }
-
     /**
      * This abstract method allows different adapters of type ItemAdapter to add their own unique
      * Item objects specific to a certain store, so they can be binded to a list when need be.
@@ -83,9 +79,10 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
      * @return a List of Item objects specific to a child adapter.
      */
     public abstract List<Item> inputData();
+
     /**
      * Created by michael on 11/9/2015.
-     * The View in question are the little horizontal scrolling bars in the list that present information
+     * The View in question are the little horizontal scrolling row in the list that present information
      * of a specific item.
      * This ViewHolder holds the title of a given item, its price and the icon at their correct positions
      * specified in the given XML resource file.
@@ -126,20 +123,4 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         }
     }
 
-    class BaseItemIterator implements ItemIterator {
-        int index;
-
-        @Override
-        public boolean hasNext() {
-            return index < data.size();
-        }
-
-        @Override
-        public Item next() {
-            if (this.hasNext()) {
-                return data.get(index++);
-            }
-            return null;
-        }
-    }
 }
