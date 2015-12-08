@@ -20,6 +20,8 @@ import com.example.michael.deliveryapp.R;
 
 /**
  * Created by Patrick Balingit
+ * Login Screen for our app that will grab data from Register.Class using the UserLocalStore.
+ *
  */
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,6 +53,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    /**
+     * onClick method that will test multiple senarios if the userLocalStore data matches the data inputed in the textfields here
+     * Wlll throw errors if any fields are left blank. Toast notification will show if credentials are wrong.
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -77,6 +84,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    // Was not used but was meant to verify credentals but serverRequest never worked.
     private void authenticate(User user) {
         ServerRequest serverRequest = new ServerRequest(this);
         serverRequest.fetchUserDataBackground(user, new GetUserCallback() {
@@ -90,14 +98,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
-
+    // Showing error if credentials of both studentid and password was wrong.
     private void showErrorMessage() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Login.this);
         dialogBuilder.setMessage("Incorrect User Details");
         dialogBuilder.setPositiveButton("OK", null);
         dialogBuilder.show();
     }
-
+    // If the user puts in the correct credentals then it will take the user to the home screen.
     private void logUserIn(User returnedUser) {
         userLocalStore.storeUserData(returnedUser);
         userLocalStore.setUserLoggedIn(true);

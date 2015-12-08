@@ -28,9 +28,9 @@ public class AdapterOnFourth extends ItemAdapter {
     @Override
     public List<Item> inputData() {
         List<Item> a = new ArrayList<>();
-        int[] iconId = {R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item, R.drawable.example_item};
-        String[] itemNames = {"OnFourthItem", "OnFourthItem", "OnFourthItem", "OnFourthItem", "OnFourthItem"};
-        double[] itemPrice = {10.43, 10.43, 10.43, 10.43, 10.43,};
+        int[] iconId = {R.drawable.ic_action_coffee, R.drawable.ic_action_coffee, R.drawable.ic_action_coffee, R.drawable.ic_action_coffee, R.drawable.ic_action_coffee};
+        String[] itemNames = {"Americano", "Caramel Latte", "Latte", "Café Au Lait", "Red Eye"};
+        double[] itemPrice = {3.20, 4.80, 4.35, 2.90, 3.05,};
         for (int i = 0; i < iconId.length && i < itemNames.length && i < itemPrice.length; i++) {
             Item current = new Item(itemNames[i], "description", itemPrice[i], iconId[i]);
             a.add(current);

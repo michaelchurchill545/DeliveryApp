@@ -26,7 +26,10 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Patrick on 11/21/2015.
+ * Created by Patrick Balingit on 11/21/2015.
+ *
+ * This class was supposed to access a free webhosting site called 000webhost where the credentials of the Lazi application
+ * was supposed to be stored into.
  */
 public class ServerRequest {
 
@@ -42,11 +45,12 @@ public class ServerRequest {
         progressDialog.setMessage("Please Wait");
     }
 
+    // Showing a progress dialog popup screen when it is executing the new data to be stored.
     public void storeUserDataBackground(User user, GetUserCallback userCallback) {
         progressDialog.show();
         new StoreUserDataAsyncTask(user, userCallback).execute();
     }
-
+    // Showing a progress dialog popup screen when it is executing the data to be fetched.
     public void fetchUserDataBackground(User user, GetUserCallback callBack) {
         progressDialog.show();
         new fetchUserDataAsyncTask(user, callBack).execute();
@@ -61,7 +65,11 @@ public class ServerRequest {
             this.userCallback = userCallback;
 
         }
-
+        /**
+         * This doInBackground was to store all data gathered from the Register.class
+         * into the database on 000webhost
+         *
+         */
         @Override
         protected Void doInBackground(Void... params) {
 

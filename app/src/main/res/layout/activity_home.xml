@@ -14,37 +14,12 @@
         android:background="@drawable/lazilogo"
         android:gravity="bottom">
 
-
         <!--
         Center the Button under the logo.
         Color the button in correlation with the color scheme.
         -->
-        <Button
-            android:text="Choose Store"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="storeScreen"
-            android:layout_marginLeft="50dp"
-            android:layout_marginStart="50dp"
-            android:layout_alignTop="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
-        <!--
-        Center the Button under the logo.
-        Color the button in correlation with the color scheme.
-        -->
-        <Button
-            android:text="Past Orders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_marginRight="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="119dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+
         <include layout="@layout/app_bar"/>
 
         <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
@@ -57,6 +32,26 @@
         </android.support.design.widget.AppBarLayout>
 
         <include layout="@layout/content_home" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Store"
+            android:onClick="storeScreen"
+            android:id="@+id/button2"
+            android:layout_marginBottom="132dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Get Started with your Order!"
+            android:id="@+id/textView2"
+            android:layout_above="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF" />
 
 
     </RelativeLayout>
