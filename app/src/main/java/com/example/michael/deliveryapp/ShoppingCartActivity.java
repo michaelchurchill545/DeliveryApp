@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * This activity displays the a list of items that the user wants to buy, as well as a button at the bottom
  * that displays the subtotal cost of the items
  */
-public class ShoppingCartActivity extends AppCompatActivity {
+public class ShoppingCartActivity extends AppCompatActivity implements View.OnClickListener {
     private ActionBarDrawerToggle mDrawerToggle;
     public static ArrayList<Item> cartItems = new ArrayList<>();
 
@@ -92,7 +92,10 @@ public class ShoppingCartActivity extends AppCompatActivity {
         Button paybutton = (Button) findViewById(R.id.pay_now);
         String subTot = "" + this.getSubtotal();
         paybutton.setText(subTot);
+        paybutton.setOnClickListener(this);
+
     }
+
 
     //<<<<<<< HEAD
     // =======
@@ -148,5 +151,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
         return "Pay Now: $" + String.valueOf(String.format("%.2f", subtotal));
     }
 
+    /**
+     * Reacts when user presses "Add to Cart" button
+     * Passes item to Shopping Cart activity
+     */
+    @Override
+    public void onClick(View v) {
 
+        startActivity(new Intent(this, PaymentPayPal.class));
+    }
 }
