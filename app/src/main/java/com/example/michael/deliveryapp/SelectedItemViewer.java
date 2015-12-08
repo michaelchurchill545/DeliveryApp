@@ -18,7 +18,12 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 /**
- * Created By not-Roben
+ * Created By Patrick Vu
+ *
+ * In the case of the item viewer activity, When an item is clicked in the ChooseItem activity, the item's
+ * information (such as it's name, description, icon and price) are expanded upon in this activity.
+ * SelectedItemViewer also has an option to add the item to the shopping cart, which passes the information
+ * of the selected item to the shopping cart.
  */
 public class SelectedItemViewer extends AppCompatActivity {
     Item item = new Item("test", "some description", 20.00, R.drawable.ic_action_mustache);
@@ -34,12 +39,19 @@ public class SelectedItemViewer extends AppCompatActivity {
 
     }
 
+    /**
+     * The onCreate method connects the activity to the proper XML files, as well as inflate the
+     * application bar and Navigation Drawer fragment and attaches the appropriate change listeners
+     * to any buttons that are instantiated.
+     *
+     * @param savedInstanceState is used to store data only for application lifetime (i.e. temporarily).
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_item_fragment);
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
-            item = (Item) getIntent().getParcelableExtra("selected_item");
+            item = getIntent().getParcelableExtra("selected_item");
 
         }
         TextView title = (TextView) findViewById(R.id.item_name);
@@ -99,7 +111,6 @@ public class SelectedItemViewer extends AppCompatActivity {
      * Reacts when user presses "Add to Cart" button
      * Passes item to Shopping Cart activity
      */
-
     public void shopping_cart(View view) {
 
         Intent intent = new Intent(this, ShoppingCartActivity.class);

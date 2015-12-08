@@ -18,7 +18,9 @@ import android.widget.Toast;
 import com.example.michael.deliveryapp.Home;
 import com.example.michael.deliveryapp.R;
 
-
+/**
+ * Created by Patrick Balingit
+ */
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     Button bLogin;

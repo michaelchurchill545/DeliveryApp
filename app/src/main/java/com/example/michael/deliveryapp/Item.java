@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 /**
  * Created by michael on 11/18/2015.
+ * This is a well encapsulated class that represents an item that a user can buy.
  */
 public class Item implements Parcelable {
     private String name;
@@ -19,6 +20,9 @@ public class Item implements Parcelable {
         this.description = description;
     }
 
+    /**
+     * Created By Roben
+     */
     private Item(Parcel in) {
         name = in.readString();
         description = in.readString();
@@ -27,27 +31,53 @@ public class Item implements Parcelable {
 
     }
 
+    /**
+     * Getter
+     *
+     * @return the item's description
+     */
     public String getDescription() {
         return this.description;
     }
 
+    /**
+     * Getter
+     *
+     * @return the item's name
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Getter
+     * @return the item's integer id for the appropriate icon that should be displayed
+     */
     public int getIconId() {
         return this.iconId;
     }
 
+    /**
+     * Getter
+     * @return the item's price
+     */
     public double getItemPrice() {
         return this.itemPrice;
     }
 
+
+    /**
+     * Created By Roben
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
+
+    /**
+     * Created By Roben
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
@@ -56,6 +86,9 @@ public class Item implements Parcelable {
         dest.writeInt(iconId);
     }
 
+    /**
+     * Created By Roben
+     */
     public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {

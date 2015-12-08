@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * The Factory Class that will instantiate new ItemAdapters
+ * The Factory Class that will instantiate new ItemAdapters to be presented in the ChooseItem activity.
  * Created by michael on 11/29/2015.
  */
 public class AdapterFactory {
@@ -43,18 +43,43 @@ public class AdapterFactory {
         return adapter;
     }
 
+    /**
+     * A declared method of the class that will be invoked if the index in String[] stores contains
+     * the string "createAdapterVillageMarket"
+     *
+     * @param context global information about the application.
+     * @return an instance of AdapterVillageMarket
+     */
     private ItemAdapter createAdapterVillageMarket(Context context) {
         return new AdapterVillageMarket(context);
     }
 
+    /**
+     * A declared method of the class that will be invoked if the index in String[] stores contains
+     * the string "createAdapterSpartanBookstore"
+     * @param context global information about the application.
+     * @return an instance of AdapterSpartanBookstore
+     */
     private ItemAdapter createAdapterSpartanBookstore(Context context) {
         return new AdapterSpartanBookstore(context);
     }
 
+    /**
+     * A declared method of the class that will be invoked if the index in String[] stores contains
+     * the string "createAdapterJustBelow"
+     * @param context global information about the application.
+     * @return an instance of AdapterJustBelow
+     */
     private ItemAdapter createAdapterJustBelow(Context context) {
         return new AdapterJustBelow(context);
     }
 
+    /**
+     * A declared method of the class that will be invoked if the index in String[] stores contains
+     * the string "createAdapterOnFourth"
+     * @param context global information about the application.
+     * @return an instance of AdapterOnFourth
+     */
     private ItemAdapter createAdapterOnFourth(Context context) {
         return new AdapterOnFourth(context);
     }

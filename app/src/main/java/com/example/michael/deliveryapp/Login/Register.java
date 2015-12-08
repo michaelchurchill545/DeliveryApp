@@ -21,6 +21,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * Created by Patrick Balingit
+ */
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
     Button bRegister;

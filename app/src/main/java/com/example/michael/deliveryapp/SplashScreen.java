@@ -10,9 +10,11 @@ import com.example.michael.deliveryapp.Login.Login;
 /**
  * Created by Patrick Vu on 11/30/2015.
  * Class that controls the application's splashscreen.
+ * A splash screen is the loading screen shown on launch.
  */
 public class SplashScreen extends Activity {
     private static int SPLASH_SCREEN_DURATION = 3000;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

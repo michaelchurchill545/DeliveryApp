@@ -28,6 +28,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * Created by Michael
+ * The choose item activity is the magnum opus of the application, as it provides the user several stores
+ * to choose from as well as a list of items that will show up every time a user clicks a specific store
+ */
 public class ChooseItem extends AppCompatActivity {
 
 
@@ -37,6 +42,15 @@ public class ChooseItem extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
+
+    /**
+     * The onCreate method connects the activity to the proper XML files, as well as inflate the
+     * application bar and Navigation Drawer fragment and attaches the appropriate change listeners
+     * to any buttons that are instantiated.
+     * In the case of the choose item activity,
+     *
+     * @param savedInstanceState is used to store data only for application lifetime (i.e. temporarily).
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,9 +120,9 @@ public class ChooseItem extends AppCompatActivity {
 
     /**
      * Created by Michael
-     *
-     * @param item
-     * @return
+     *  This method handles any "back" buttons or settings button clicks.
+     * @param item the menu item clicked
+     * @return a call to the super method with the proper menu item
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -137,7 +151,7 @@ public class ChooseItem extends AppCompatActivity {
         client.connect();
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "ChooseItem Page", // TODO: Define a title for the content shown.
+                "Choose An Item", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
@@ -169,25 +183,50 @@ public class ChooseItem extends AppCompatActivity {
     }
 
 
-    /*Created By Michael*/
+    /**
+     * This Class is different from the other item adapters because, instead of merging the XML
+     * content of items into Recycler (list) views, this pager item adapter merges the XML content
+     * of items into swipeable tabs.
+     */
     class StorePagerAdapter extends FragmentPagerAdapter {
         String[] stores;
 
+        /**
+         * Constructer that initializes the String[] stores with the XML string array of stores
+         * in the XML string layout file
+         *
+         * @param fm
+         */
         public StorePagerAdapter(FragmentManager fm) {
             super(fm);
             stores = getResources().getStringArray(R.array.stores);
         }
 
+        /**
+         * Getter of store titles at a given store
+         *
+         * @param position the index at stores[position]
+         * @return the title of a store at a given position
+         */
         @Override
         public CharSequence getPageTitle(int position) {
             return stores[position];
         }
 
+        /**
+         * Getter that returns the tab at a given tab position
+         * @param position the position
+         * @return an instance of a fragment opened once a specific tab is clicked
+         */
         @Override
         public Fragment getItem(int position) {
             return StoreFragment.getInstance(position);
         }
 
+        /**
+         * Getter that returns the length of the String[] stores list
+         * @return the length of the String[] stores list
+         */
         @Override
         public int getCount() {
             return stores.length;
@@ -195,11 +234,20 @@ public class ChooseItem extends AppCompatActivity {
     }
 
     /*Created By Michael*/
+
+    /**
+     * This class creates a new fragment which includes a recycler view in it every time a tab is clicked.
+     */
     public static class StoreFragment extends Fragment {
         private RecyclerView mRecyclerView;
 
         private AdapterFactory mAdapterFactory = new AdapterFactory();
 
+        /**
+         * Returns the correct fragment at the right position.
+         * @param position the index where every store belongs to
+         * @return a store fragment object
+         */
         public static StoreFragment getInstance(int position) {
             {
                 StoreFragment storeFragment = new StoreFragment();
@@ -223,7 +271,7 @@ public class ChooseItem extends AppCompatActivity {
          *                           a recycler view that contains the elements of the store selected. The selected store
          * @param container          A View Group (which is a view that contains views inside of it
          *                           called "children") whose children are the rows of a recycler view.
-         * @param savedInstanceState he saved data that the system uses to restore the previous
+         * @param savedInstanceState the saved data that the system uses to restore the previous
          *                           state is called the "instance state" and is a collection of key-value pairs stored
          *                           in a Bundle object.
          * @return A layout formatted as a Recycler View.

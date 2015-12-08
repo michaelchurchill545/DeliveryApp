@@ -19,12 +19,21 @@ import java.util.ArrayList;
 
 /**
  * Created by Roben on 11/30/2015.
+ * This activity displays the a list of items that the user wants to buy, as well as a button at the bottom
+ * that displays the subtotal cost of the items
  */
 public class ShoppingCartActivity extends AppCompatActivity implements View.OnClickListener {
     private ActionBarDrawerToggle mDrawerToggle;
     private ArrayList<Item> cartItems = new ArrayList<>();
 
-
+    /**
+     * The onCreate method connects the activity to the proper XML files, as well as inflate the
+     * application bar and Navigation Drawer fragment and attaches the appropriate change listeners
+     * to any buttons that are instantiated.
+     * In the case of the shopping cart activity,
+     *
+     * @param savedInstanceState is used to store data only for application lifetime (i.e. temporarily).
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
@@ -67,14 +76,14 @@ public class ShoppingCartActivity extends AppCompatActivity implements View.OnCl
         if (savedInstanceState == null || !savedInstanceState.containsKey("itemlist")) {
             Intent getIntent = getIntent();
             if (getIntent.getExtras() != null) {
-                Item additem = (Item) getIntent().getParcelableExtra("cartitem");
+                Item additem = getIntent().getParcelableExtra("cartitem");
                 cartItems.add(additem);
             }
         } else {
             cartItems = savedInstanceState.getParcelableArrayList("itemlist");
             Intent getIntent = getIntent();
             if (getIntent.getExtras() != null) {
-                Item additem = (Item) getIntent().getParcelableExtra("cartitem");
+                Item additem = getIntent().getParcelableExtra("cartitem");
                 cartItems.add(additem);
             }
         }

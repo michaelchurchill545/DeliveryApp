@@ -39,8 +39,8 @@ public class UserLocalStore implements Serializable {
         String password = userLocalDatabase.getString("password", 0 + "");
         int roomNumber = userLocalDatabase.getInt("roomNumber", 0);
 
-        User storedUser = new User(studentID, password, roomNumber);
-        return storedUser;
+
+        return new User(studentID, password, roomNumber);
 
     }
 

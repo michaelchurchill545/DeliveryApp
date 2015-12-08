@@ -11,21 +11,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
 
 /**
  * Created By Roben
  */
 public class Home extends AppCompatActivity {
-    RecyclerView mDrawerRecycler;
-    RelativeLayout mDrawerPane;
     private ActionBarDrawerToggle mDrawerToggle;
-    private DrawerLayout mDrawerLayout;
 
-    ArrayList<NavigationItem> mNavItems = new ArrayList<NavigationItem>();
-
+    /**
+     * The onCreate method connects the activity to the proper XML files, as well as inflate the
+     * application bar and Navigation Drawer fragment and attaches the appropriate change listeners
+     * to any buttons that are instantiated.
+     * In the case of the home activity, There are two buttons that can be pressed: Choose Item and Previous order
+     *
+     * @param savedInstanceState is used to store data only for application lifetime (i.e. temporarily).
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +40,8 @@ public class Home extends AppCompatActivity {
         NavigationDrawerFragment fragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.home_fragment_navigation_drawer);
         fragment.setUp(R.id.home_fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        RecyclerView mDrawerRecycler = (RecyclerView) findViewById(R.id.navRecycler);
         DrawerRecyclerAdapter adapter = new DrawerRecyclerAdapter(getApplicationContext());
         mDrawerRecycler.setAdapter(adapter);
         mDrawerRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -95,7 +95,7 @@ public class Home extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
+    /**Created By Roben
      * method that reacts from when user presses on "Store" button
      * currently results in printing out "Store List:"
      */

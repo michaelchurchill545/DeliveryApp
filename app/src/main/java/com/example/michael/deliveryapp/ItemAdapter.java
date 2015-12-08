@@ -18,9 +18,7 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
     protected LayoutInflater inflater;
     private List<Item> data;
     private Context context;
-    private Item item;
     private boolean itemHasBeenSelected = false;
-    private int position;
 
     /**
      * Created by michael on 11/9/2015.
@@ -44,7 +42,7 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
      * This method merges the information (In this case the Item's name, price, and icon ID) passed
      * in from a given item with the specifications given from the ItemViewHolder's XML code so that
      * it can fit the format of a recycler view's layout.
-     * <p/>
+     *
      * For example, The holder's Icon (Placed on the left of the recycler view row) will have it's
      * initialized icon (an android launcher icon) replaced with some item icon like a pizza to
      * represent food or a mustache to represent an item accessory.
@@ -54,7 +52,6 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
      * @param position The index of an Item inside of a subclass's list of items
      */
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        setPosition(position);
 
         Item anItem = data.get(position);
         holder.title.setText(anItem.getName());
@@ -63,11 +60,12 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         holder.icon.setImageResource(anItem.getIconId());
     }
 
-    public void setPosition(int num) {
-        position = num;
-    }
 
-
+    /**
+     * getter
+     *
+     * @return the size of the list of items
+     */
     @Override
     public int getItemCount() {
 
@@ -77,15 +75,31 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
     public ItemIterator getIterator() {
         return new BaseItemIterator();
     }
+
+    /**
+     * This abstract method allows different adapters of type ItemAdapter to add their own unique
+     * Item objects specific to a certain store, so they can be binded to a list when need be.
+     *
+     * @return a List of Item objects specific to a child adapter.
+     */
     public abstract List<Item> inputData();
     /**
      * Created by michael on 11/9/2015.
+     * The View in question are the little horizontal scrolling bars in the list that present information
+     * of a specific item.
+     * This ViewHolder holds the title of a given item, its price and the icon at their correct positions
+     * specified in the given XML resource file.
      */
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
         TextView price;
         ImageView icon;
 
+        /**
+         * Sets the Viewholder to the specifications listed in the XML file and
+         * @param itemView the View (or XML resource file)
+         *  passed in from ItemAdapter's OnCreateViewHolder() method.
+         */
         public ItemViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -98,9 +112,8 @@ public abstract class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemV
         public void onClick(View v) {
             Intent i;
 
-
             //gets the item selected
-            item = data.get(getPosition());
+            Item item = data.get(getPosition());
 
 
             //targets the next activity to go to

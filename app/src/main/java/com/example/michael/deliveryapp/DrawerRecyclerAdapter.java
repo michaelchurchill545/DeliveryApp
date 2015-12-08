@@ -17,7 +17,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Patrick on 11/12/2015.
+ * Created by Patrick Vu on 11/12/2015.
+ * The Drawer recycler adapter binds the information that needs to be presented in the Navigation drawer with
+ * its proper XML files.
  */
 public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAdapter.NavItemViewHolder> {
     protected LayoutInflater inflater;
@@ -29,6 +31,7 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<DrawerRecyclerAd
         mNavItems = inputData();
         this.context = context;
     }
+
 
     @Override
     public NavItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
