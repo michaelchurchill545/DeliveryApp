@@ -23,6 +23,9 @@ import java.io.ObjectOutputStream;
 
 /**
  * Created by Patrick Balingit
+ *
+ * The register class that works with drop down lists, butttons and text fields. Stores the data in a serializable file
+ * It also works with the Login.class to verify user information
  */
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +33,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     EditText eID, ePassword, roomNumber;
 
 
+    // Provides the buttons and fields in content_register.xml information
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +71,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-
+    /**
+     * Every editTextfield on the Register Screen is meant to throw an error to
+     * show if the user did not fill in all the blanks
+     * It will also store the user data that Login will ask for to allow the new registered user to log in.
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -92,15 +100,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 }
 
                 User registeredData = new User(studentID, password, room);
-//                UserLocalStore storeStuff = new UserLocalStore(getApplicationContext());
-//                        storeStuff.storeUserData(registeredData);
+                //UserLocalStore storeStuff = new UserLocalStore(getApplicationContext());
+                //storeStuff.storeUserData(registeredData);
                 Login.userLocalStore.storeUserData(registeredData);
                 // saveObject(Login.userLocalStore);
                 registerUser(registeredData);
                 break;
         }
     }
-
+    // Once user registers, pressing the register button brings them back to the login screen.
     private void registerUser(User user) {
         ServerRequest serverRequest = new ServerRequest(this);
         serverRequest.storeUserDataBackground(user, new GetUserCallback() {

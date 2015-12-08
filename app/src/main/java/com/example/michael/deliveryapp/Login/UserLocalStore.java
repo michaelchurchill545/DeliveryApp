@@ -7,6 +7,9 @@ import java.io.Serializable;
 
 /**
  * Created by Patrick Balingit on 11/21/2015.
+ *
+ * Since the Server Request was not working, we implemented a local store of the variables via Serializable to store the data in a file
+ * Using this class also lets the User login and Register classes
  */
 public class UserLocalStore implements Serializable {
 
@@ -26,6 +29,10 @@ public class UserLocalStore implements Serializable {
         this.userLocalDatabase = userLocalDatabase;
     }
 
+    /**
+     * StoreUserData grabs the data from studentID, password and roomNumber to be collected from the Register.class and Login.class
+     * @param user
+     */
     public void storeUserData(User user) {
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
         spEditor.putString("studentID", user.studentID);
@@ -44,6 +51,7 @@ public class UserLocalStore implements Serializable {
 
     }
 
+    // Method to set the User Login and make sure it was a registered user. Error is showned when error is found
     public void setUserLoggedIn(boolean loggedIn) {
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
         spEditor.putBoolean("loggedIn", loggedIn);
