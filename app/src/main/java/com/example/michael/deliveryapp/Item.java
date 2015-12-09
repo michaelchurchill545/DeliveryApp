@@ -65,6 +65,29 @@ public class Item implements Parcelable {
         return this.itemPrice;
     }
 
+    /**
+     *
+     * Created by Roben
+     *
+     * @param o - the item that is being compared to
+     * @return true if price is the same, false if item is out of stock or price is different
+     */
+    @Override
+    public boolean equals(Object o){
+
+        Item thiItem = (Item) o;
+        if(getItemPrice() == (int) thiItem.getItemPrice()){ //if item is same price than true [switch]
+            return true;
+        }
+        if(o == null){ //if item is out of stock than false [do not switch]
+            return false;
+        }
+        if(getItemPrice() != thiItem.getItemPrice()){ //if item is different price than false [do not switch]
+            return false;
+        }
+        return true;
+    }
+
 
     /**
      * Created By Roben
@@ -73,6 +96,8 @@ public class Item implements Parcelable {
     public int describeContents() {
         return 0;
     }
+
+
 
 
     /**
